@@ -9,10 +9,11 @@ class Installer extends ComposerInstaller {
 
   public function getInstallPath(PackageInterface $package) {
     $installPath = parent::getInstallPath($package);
-    $distDir = $this->composer->getConfig()->get('extra.installer-dir');
-    if (!empty($distDir)) {
-      $installPath = rtrim($distDir, '/') . '/' . $installPath;
+    $extra = $this->composer->getPackage()->getExtra();
+    if (!empty($extra['installer-dir'])) {
+      $installPath = rtrim($extra['installer-dir'], '/') . '/' . $installPath;
     }
+
     return $installPath;
   }
 
