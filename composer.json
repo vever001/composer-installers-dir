@@ -1,0 +1,18 @@
+{
+    "name": "vever001/composer-installers-dir",
+    "type": "composer-plugin",
+    "description": "Small composer plugin using composer/installers that allows you to add an additional directory to package destinations.",
+    "autoload": {
+        "psr-4": { "vever001\\ComposerInstallersDir\\": "src/ComposerInstallersDir" }
+    },
+    "extra": {
+        "class": "vever001\\ComposerInstallersDir\\Plugin"
+    },
+    "require": {
+        "composer-plugin-api": "^1.0",
+        "composer/installers": "^1.0"
+    },
+    "require-dev": {
+        "composer/composer": "1.0.*@dev"
+    }
+}
