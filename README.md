@@ -11,11 +11,14 @@ composer require vever001/composer-installers-dir
 This is useful if you have a composer.json and you want to build the project to another folder.
 Here's an example to build the whole project in a `dist` folder using `--no-dev`:
 ```sh
-composer config vendor-dir "dist/vendor"
-composer config extra.installer-dir "dist"
+DIR="dist"
+composer config vendor-dir "$DIR/vendor"
+composer config extra.installer-dir "$DIR"
 composer install --no-dev
 composer config --unset extra.installer-dir
 composer config --unset vendor-dir
+cp composer.json $DIR
+cd $DIR && composer dump-autoload --optimize
 ```
 
 Which will:
@@ -30,5 +33,8 @@ Which will:
         "vendor-dir": "dist/vendor"
       }
     ```
-  - Build the project with `--no-dev`
-  - And finally remove the changes to the composer.json
+  - Build the project to the `dist` folder with `--no-dev`
+  - Revert the changes to the composer.json
+  - Copy the `composer.json to the `dist` folder
+  - Move to the `dist` folder
+  - Update the autoloader (with `--optimize`) to resolve paths
