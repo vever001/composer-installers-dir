@@ -22,7 +22,7 @@ composer install --no-dev
 composer config --unset extra.installer-dir
 composer config --unset vendor-dir
 cp composer.json $DIR
-cd $DIR && composer dump-autoload --optimize
+cd $DIR && composer dump-autoload --no-dev --optimize
 ```
 
 Which will:
