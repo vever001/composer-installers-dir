@@ -3,8 +3,8 @@
 The `composer-installers-dir` is a small composer plugin that allows you to specify a directory where all packages
 handled by `composer/installers` will be downloaded to.
 
-Composer supports overriding the vendor location using `vendor-dir` out of the box.
-This is not the case for packages using `composer/installers`.
+Composer supports overriding the vendor location using `vendor-dir` out of the box.  
+This is not the case for packages using `composer/installers`.  
 This project allows you to define similarly an `installer-dir` in the `extra` section of your `composer.json`.
 
 To install it:
